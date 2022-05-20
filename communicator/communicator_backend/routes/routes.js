@@ -44,7 +44,6 @@ router.post('/postTranscriptions', (req, res) => {
             return res.status(500).send(err.message ? err.message : "Some Error occured while inserting transcription")
 
         });
-    res.send('Added new Transcription')
 })
 
 module.exports = router;
