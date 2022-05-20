@@ -1,12 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./Player.css";
-import Player from "./components/Player";
+import MainPlayer from "./MainPlayer";
 import Login from "./Login";
 import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
 
-import PrivateRoute from './Utils/PrivateRoute';
-import PublicRoute from './Utils/PublicRoute';
+import PrivateRoute from "./Utils/PrivateRoute";
+import PublicRoute from "./Utils/PublicRoute";
+
+import './index.css'
 
 function App() {
   const [songs] = useState([
@@ -917,14 +918,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Login} />
             <PublicRoute path="/login" component={Login} />
-            <PrivateRoute
-              path="/dashboard"
-              component={Player}
-              currentSongIndex={currentSongIndex}
-              setCurrentSongIndex={setCurrentSongIndex}
-              nextSongIndex={nextSongIndex}
-              songs={songs}
-            />
+            <PrivateRoute path="/dashboard" component={MainPlayer} />
           </Switch>
         </div>
       </BrowserRouter>
